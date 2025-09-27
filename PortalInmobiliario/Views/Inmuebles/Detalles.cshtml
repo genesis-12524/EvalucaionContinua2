@@ -1,0 +1,74 @@
+@model PortalInmobiliario.Models.Inmueble
+
+@{
+    ViewData["Title"] = "Detalles del Inmueble";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8">
+            <h1>@Model.Titulo</h1>
+            <p class="text-muted">Código: @Model.Codigo</p>
+            
+            <div class="mb-4">
+                <img src="@Model.Imagen" alt="@Model.Titulo" class="img-fluid rounded" style="max-height: 400px; width: 100%; object-fit: cover;">
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <h5>Características</h5>
+                    <ul class="list-unstyled">
+                        <li><strong>Tipo:</strong> @Model.Tipo</li>
+                        <li><strong>Ciudad:</strong> @Model.Ciudad</li>
+                        <li><strong>Dirección:</strong> @Model.Direccion</li>
+                        <li><strong>Dormitorios:</strong> @Model.Dormitorios</li>
+                        <li><strong>Baños:</strong> @Model.Banos</li>
+                        <li><strong>Área:</strong> @Model.MetrosCuadrados m²</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <div class="card bg-light">
+                        <div class="card-body text-center">
+                            <h3 class="text-primary">S/ @Model.Precio.ToString("N0")</h3>
+                            <p class="text-muted">Precio de venta</p>
+                            
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <button class="btn btn-primary btn-lg mt-3" data-bs-toggle="modal" data-bs-target="#visitaModal">
+                                    <i class="fas fa-calendar-plus"></i> Agendar Visita
+                                </button>
+                            }
+                            else
+                            {
+                                <p class="text-warning mt-3">
+                                    <a asp-area="Identity" asp-page="/Account/Login">Inicia sesión</a> para agendar una visita
+                                </p>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <a asp-action="Index" class="btn btn-outline-secondary">
+            <i class="fas fa-arrow-left"></i> Volver al Catálogo
+        </a>
+    </div>
+</div>
+
+<!-- Modal para agendar visita (se completará en Pregunta 3) -->
+<div class="modal fade" id="visitaModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Agendar Visita</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>Funcionalidad disponible en la siguiente pregunta.</p>
+            </div>
+        </div>
+    </div>
+</div>
