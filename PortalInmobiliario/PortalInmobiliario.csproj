@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>aspnet-PortalInmobiliario-8cf4b01a-5a75-4928-a27e-e614beb22ce3</UserSecretsId>
   </PropertyGroup>
