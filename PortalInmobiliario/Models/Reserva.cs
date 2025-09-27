@@ -18,7 +18,7 @@ namespace PortalInmobiliario.Models;
         
         public DateTime FechaCreacion { get; set; } = DateTime.Now;
         
-        // Navigation properties
+        
         [ForeignKey("InmuebleId")]
         public Inmueble Inmueble { get; set; }
         

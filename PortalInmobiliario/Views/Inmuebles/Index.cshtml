@@ -7,7 +7,7 @@
 <div class="container mt-4">
     <h1 class="mb-4">@ViewData["Title"]</h1>
 
-    <!-- Formulario de Filtros -->
+    
     <div class="card mb-4">
         <div class="card-header">
             <h5 class="mb-0">Filtrar Inmuebles</h5>
@@ -54,12 +54,11 @@
                 </div>
             </form>
 
-            <!-- Validation Summary -->
             <div asp-validation-summary="ModelOnly" class="text-danger mt-3"></div>
         </div>
     </div>
 
-    <!-- Resultados -->
+   
     <div class="row">
         @if (Model.Inmuebles.Any())
         {
@@ -95,7 +94,7 @@
         }
     </div>
 
-    <!-- Paginación -->
+   
     @if (Model.TotalPaginas > 1)
     {
         <nav aria-label="Paginación de inmuebles">
@@ -136,7 +135,7 @@
         </nav>
     }
 
-    <!-- Resumen de resultados -->
+    
     @if (Model.Inmuebles.Any())
     {
         <div class="text-center mt-3 text-muted">

@@ -18,36 +18,36 @@ public class ApplicationDbContext : IdentityDbContext
         {
             base.OnModelCreating(builder);
 
-            // Configuraciones de modelo
+            
             builder.Entity<Inmueble>(entity =>
             {
                 entity.HasIndex(i => i.Codigo).IsUnique();
                 
                 entity.Property(i => i.Precio).HasColumnType("decimal(18,2)");
                 
-                // Restricción: Precio > 0
+                
                 entity.HasCheckConstraint("CK_Inmueble_Precio_Positivo", "Precio > 0");
                 
-                // Restricción: MetrosCuadrados > 0
+                
                 entity.HasCheckConstraint("CK_Inmueble_Metros_Positivo", "MetrosCuadrados > 0");
             });
 
             builder.Entity<Visita>(entity =>
             {
-                // Restricción: FechaInicio < FechaFin
+                
                 entity.HasCheckConstraint("CK_Visita_Fechas_Validas", "FechaInicio < FechaFin");
                 
-                // Índice para evitar visitas solapadas (se validará por código también)
+                
                 entity.HasIndex(v => new { v.InmuebleId, v.FechaInicio, v.FechaFin });
             });
 
             builder.Entity<Reserva>(entity =>
             {
-                // Índice para búsquedas de reservas activas
+                
                 entity.HasIndex(r => new { r.InmuebleId, r.FechaExpiracion });
             });
 
-            // Datos de semilla
+            
             builder.Entity<Inmueble>().HasData(
                 new Inmueble 
                 { 

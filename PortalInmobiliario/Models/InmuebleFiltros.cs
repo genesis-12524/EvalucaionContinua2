@@ -22,15 +22,15 @@ namespace PortalInmobiliario.Models;
         [Range(0, 10, ErrorMessage = "El número de dormitorios debe estar entre 0 y 10")]
         public int? DormitoriosMin { get; set; }
 
-        // Propiedades para la paginación
+        
         public int Pagina { get; set; } = 1;
         public int TamanoPagina { get; set; } = 6;
         public int TotalPaginas { get; set; }
         public int TotalInmuebles { get; set; }
 
-        // Lista de resultados
+      
         public List<Inmueble> Inmuebles { get; set; } = new List<Inmueble>();
 
-        // Listas para dropdowns
+       
         public List<string> Ciudades { get; set; } = new List<string>();
     }

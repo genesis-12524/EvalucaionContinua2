@@ -24,7 +24,7 @@ namespace PortalInmobiliario.Models;
         [StringLength(500)]
         public string Notas { get; set; }
         
-        // Navigation properties
+        
         [ForeignKey("InmuebleId")]
         public Inmueble Inmueble { get; set; }
         

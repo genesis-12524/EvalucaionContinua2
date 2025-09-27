@@ -8,7 +8,7 @@ namespace PortalInmobiliario.Models;
         public int Id { get; set; }
         
         [Required, StringLength(20)]
-        public string Codigo { get; set; }  // Único
+        public string Codigo { get; set; }  
         
         [Required, StringLength(100)]
         public string Titulo { get; set; }
@@ -38,7 +38,7 @@ namespace PortalInmobiliario.Models;
         
         public bool Activo { get; set; } = true;
         
-        // Navigation properties
+       
         public ICollection<Visita> Visitas { get; set; }
         public ICollection<Reserva> Reservas { get; set; }
     }
